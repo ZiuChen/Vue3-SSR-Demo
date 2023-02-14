@@ -5,6 +5,5 @@ import App from '../App.vue'
 // 因为每次请求都需要创建一个新的app实例 避免多个请求之间的数据污染
 // 这里的createApp函数会在每次请求时被调用 从而创建一个新的app实例
 export default function createApp() {
-  const app = createSSRApp(App)
-  return app
+  return createSSRApp(App)
 }
