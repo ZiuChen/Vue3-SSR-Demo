@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { createWebHistory } from 'vue-router'
 import createRouter from '../router'
+import { createPinia } from 'pinia'
 import App from '../App.vue'
 
 // 这部分的代码是在浏览器中运行的 所以可以直接使用createApp
@@ -9,8 +10,9 @@ import App from '../App.vue'
 const app = createApp(App)
 
 const router = createRouter(createWebHistory())
+const pinia = createPinia()
 
-app.use(router)
+app.use(router).use(pinia)
 
 // 这里的挂载操作是在浏览器中进行的
 // 必须要等到服务端渲染完成之后才能进行挂载操作

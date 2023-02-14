@@ -2,11 +2,13 @@
   <div class="home">
     <h1>Home</h1>
     <div>{{ count }}</div>
-    <button @click="count++">+1</button>
+    <button @click="increment">+1</button>
+    <button @click="decrement">-1</button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-const count = ref(0)
+import useCount from '../hooks/useCount'
+
+const { count, increment, decrement } = useCount()
 </script>
