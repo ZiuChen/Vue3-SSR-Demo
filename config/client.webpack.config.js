@@ -1,35 +1,16 @@
+const baseConfig = require('./base.webpack.config')
+const { merge } = require('webpack-merge')
 const path = require('path')
-const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
 
-module.exports = {
+module.exports = merge(baseConfig, {
   target: 'web', // 打包目标为web环境 这样打包出来的bundle就可以在浏览器中运行
-  mode: 'development',
   entry: './src/client/index.js',
   output: {
     filename: 'client_bundle.js',
     path: path.resolve(__dirname, '../build/client')
   },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json', '.vue']
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      }
-    ]
-  },
   plugins: [
-    new VueLoaderPlugin(),
     // 这里的DefinePlugin是webpack内置的插件
     // 透过webpack打包时的DefinePlugin插件 可以在打包时将一些变量注入到代码中
     // 相当于在代码中定义了一些全局变量
@@ -42,4 +23,4 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: false
     })
   ]
-}
+})
