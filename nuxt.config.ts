@@ -21,6 +21,11 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
       script: [{ src: 'https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js' }]
+    },
+    // 为页面添加路由切换动画
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in'
     }
   },
   // 切换渲染模式：SSR | SPA

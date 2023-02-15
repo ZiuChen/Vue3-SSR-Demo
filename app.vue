@@ -1,5 +1,13 @@
 <template>
-  <div class="app"></div>
+  <div class="app">
+    <h1>App</h1>
+    <NuxtLink to="/"> Index </NuxtLink>
+    <NuxtLink to="/home"> Home </NuxtLink>
+    <NuxtLink to="/posts/10086"> Posts </NuxtLink>
+    <NuxtLink to="/parent"> Parent </NuxtLink>
+    <NuxtLink to="/about"> About </NuxtLink>
+    <NuxtPage></NuxtPage>
+  </div>
 </template>
 
 <script setup>
@@ -35,3 +43,7 @@ useHead({
   ]
 })
 </script>
+
+<style>
+@import url(./assets/css/common.css);
+</style>
