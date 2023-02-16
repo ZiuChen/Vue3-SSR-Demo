@@ -1,0 +1,5 @@
+@import 'variables';
+
+@mixin border() {
+  border: 1px solid $color-border;
+}

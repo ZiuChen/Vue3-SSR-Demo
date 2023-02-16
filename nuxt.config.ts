@@ -36,6 +36,19 @@ export default defineNuxtConfig({
       hashMode: false
     }
   },
+  // 全局样式
+  css: ['@/assets/style/common.scss', '@/assets/style/transition.scss'],
+  // 配置vite
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 自动给scss模块中的变量添加额外的数据
+          additionalData: '@use "@/assets/style/variables.scss" as *;'
+        }
+      }
+    }
+  },
   // 忽略对shim.d.ts的生成
   typescript: {
     shim: false
