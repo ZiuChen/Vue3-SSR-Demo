@@ -49,6 +49,23 @@ export default defineNuxtConfig({
       }
     }
   },
+  // 为不同路由配置不同的渲染模式
+  routeRules: {
+    // 为所有路由配置渲染模式
+    '*': {
+      ssr: true
+    },
+    // 为某个路由配置渲染模式
+    '/posts/**': {
+      ssr: false // SPA
+    },
+    'parent/child': {
+      swr: true // 静态生成 会生成多次静态页面 （自动重新验证时需要重新生成）
+    },
+    '/about': {
+      static: true // SSG 只会在构建时生成一次静态页面
+    }
+  },
   // 忽略对shim.d.ts的生成
   typescript: {
     shim: false

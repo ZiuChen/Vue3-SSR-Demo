@@ -13,6 +13,13 @@
   </div>
 </template>
 
+<script setup>
+definePageMeta({
+  // 具名中间件: 从middleware文件夹中导入
+  middleware: ['home']
+})
+</script>
+
 <style lang="scss" scoped>
 // 使用 @use 导入 scss 变量和 mixin 文件
 // 注意: @import 已经被废弃 且不能与 @use 混用
